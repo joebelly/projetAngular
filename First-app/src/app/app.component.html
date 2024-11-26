@@ -1,3 +1,14 @@
 <h1>First App Angular</h1>
-<app-navbar></app-navbar>
-<app-header></app-header>
+<h2> {{ title }} </h2>
+<p>{{ 2+1 }}</p>
+
+<img [src]="imgURL" alt="">
+
+<!--button disabled-->
+
+<button disabled="{{isDisabled}}">Envoyer</button>
+<button [disabled]="isDisabled">Envoyer</button>
+
+<!--class binding-->
+
+<button> click Me </button>

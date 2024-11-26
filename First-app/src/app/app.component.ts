@@ -11,5 +11,9 @@ import { HeaderComponent } from './header/header.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'First-app';
+  title: string = 'This loaded dynamically';
+  imgURL: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7j8BlLTCsR6Qojbkhs2BW9IVErqdoW5EmOg&s'
+
+  isDisabled: boolean = true;
+  isActive: boolean = false;
 }
