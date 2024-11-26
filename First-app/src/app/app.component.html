@@ -5,10 +5,20 @@
 <img [src]="imgURL" alt="">
 
 <!--button disabled-->
+<br/>
+<br/>
 
 <button disabled="{{isDisabled}}">Envoyer</button>
+<br/>
+<br/>
 <button [disabled]="isDisabled">Envoyer</button>
 
 <!--class binding-->
-
-<button> click Me </button>
+<br/>
+<br/>
+<button 
+[class.active]="isActive" 
+[class.n-active]="!isActive" 
+ [class.active-border]="isActive"
+ [class.n-active-border]="!isActive"
+ > click here </button>
