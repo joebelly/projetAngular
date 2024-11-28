@@ -17,11 +17,31 @@
 <br/>
 <br/>
 <button 
-[class.active]="isActive" 
+[class.active]="isActive" style 
 [class.n-active]="!isActive" 
  [class.active-border]="isActive"
  [class.n-active-border]="!isActive"
  > click here </button>
-
+ <br/>
+ <br/>
  <!--styles binding-->
  <button [class.apple]="fruitName=='Apple'" >Fruit Ninja</button>
+ <!--style binding-->
+ <br/>
+ <br/>
+ <button 
+ [style.backgroundColor]=" isActive? 'red': 'green' "
+ [style.border]=" isActive? '3px solid yellow ' : '' "
+ >Click</button>
+ <br/>
+ <br/>
+ <!--class binding-->
+
+ <button [class.active]="isActive">Valider</button>
+ <br/>
+ <br/>
+ <!--Event binding-->
+ <button (museover)="buttonClick()">Enregistrement</button>
+ <br/>
+ <br/>
+ <input type="text" (keyup)="keyEnter()">

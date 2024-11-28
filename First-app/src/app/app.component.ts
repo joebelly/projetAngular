@@ -15,7 +15,14 @@ export class AppComponent {
   imgURL: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7j8BlLTCsR6Qojbkhs2BW9IVErqdoW5EmOg&s'
 
   isDisabled: boolean = true;
-  isActive: boolean = false;
+  isActive: boolean = true;
 
   fruitName: string = 'Apple'
+
+  buttonClick(){
+    console.log('Button Clicked');
+  }
+  keyEnter(){
+    console.log('key pressed')
+  }
 }
