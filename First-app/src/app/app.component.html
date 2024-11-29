@@ -41,7 +41,29 @@
  <br/>
  <br/>
  <!--Event binding-->
- <button (museover)="buttonClick()">Enregistrement</button>
+ <button (mouseover)="buttonClick()">Click Me</button>
  <br/>
  <br/>
- <input type="text" (keyup)="keyEnter()">
+ <input type="text" (keyup)="KeyEnter($event)">
+ <!--filtering binding-->
+ <br/>
+ <br/>
+ <input type="text" (keyup.enter)="keyupFiltering(user)" #user id="userInput">
+ <br/>
+ <br/>
+ <!--two way data binding-->
+ <input type="text" [value]="userName" #username (keyup.enter)="updateUserName(username)">
+ <br/>
+ <br/>
+ <input type="text" [(ngModel)]="userName" >
+ <br/>
+ <br/>
+ <h3>{{userName}}</h3>
+ <!--one-way and two-way Data Binding-->
+ <input type="text" [value]= 'textValue' (keyup.enter) = 'onKeyup()'>
+
+ <!--one-way ngModel-->
+ <input type="text" [(ngModel)] = 'textValue'  (keyup.enter) = 'onKeyup()'>
+
+ <h2>{{ UserName }}</h2>
+ 
