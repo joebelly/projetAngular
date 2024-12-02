@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule],
+  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -44,4 +45,9 @@ export class AppComponent {
   onKeyup() {
     console.log(this.textValue);
   }
+
+  //isLoggedIn:boolean = false;
+  isLoggedIn:boolean = false;
+  UserName: string = 'John Doe';
+
  }
