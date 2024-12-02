@@ -1,10 +1,11 @@
-<h1>First App Angular</h1>
+<app-header></app-header>
+<!--<h1>First App Angular</h1>
 <h2> {{ title }} </h2>
 <p>{{ 2+1 }}</p>
 
 <img [src]="imgURL" alt="">
 
-<!--button disabled-->
+<!--button disabled
 <br/>
 <br/>
 
@@ -13,7 +14,7 @@
 <br/>
 <button [disabled]="isDisabled">Envoyer</button>
 
-<!--class binding-->
+<!--class binding
 <br/>
 <br/>
 <button 
@@ -24,9 +25,9 @@
  > click here </button>
  <br/>
  <br/>
- <!--styles binding-->
+ <!--styles binding
  <button [class.apple]="fruitName=='Apple'" >Fruit Ninja</button>
- <!--style binding-->
+ <!--style binding
  <br/>
  <br/>
  <button 
@@ -35,23 +36,23 @@
  >Click</button>
  <br/>
  <br/>
- <!--class binding-->
+ <!--class binding
 
  <button [class.active]="isActive">Valider</button>
  <br/>
  <br/>
- <!--Event binding-->
+ <!--Event binding
  <button (mouseover)="buttonClick()">Click Me</button>
  <br/>
  <br/>
  <input type="text" (keyup)="KeyEnter($event)">
- <!--filtering binding-->
+ <!--filtering binding
  <br/>
  <br/>
  <input type="text" (keyup.enter)="keyupFiltering(user)" #user id="userInput">
  <br/>
  <br/>
- <!--two way data binding-->
+ <!--two way data binding
  <input type="text" [value]="userName" #username (keyup.enter)="updateUserName(username)">
  <br/>
  <br/>
@@ -59,11 +60,30 @@
  <br/>
  <br/>
  <h3>{{userName}}</h3>
- <!--one-way and two-way Data Binding-->
+ <!--one-way and two-way Data Binding
  <input type="text" [value]= 'textValue' (keyup.enter) = 'onKeyup()'>
 
- <!--one-way ngModel-->
- <input type="text" [(ngModel)] = 'textValue'  (keyup.enter) = 'onKeyup()'>
+ <!--one-way ngModel
+ <input type="text" [(ngModel)] = 'textValue'  (keyup.enter) = 'onKeyup()'>-->
 
- <h2>{{ UserName }}</h2>
+ <h2 *ngIf="isLoggedIn; else message" >{{ UserName }}</h2>
+
+ <h4 *ngIf="!isLoggedIn" >User is not logged in </h4>
+ <ng-template #message>
+    <h4>User is not logged in (loaded using ng-template)</h4>
+ </ng-template>
  
+<!--new way-->
+ 
+ @if (isLoggedIn) {
+    <h3>{{  UserName  }}</h3>
+}
+@else {
+    <h4>User is not logged in (loaded using if else syntax block)</h4> 
+}
+@if (!isLoggedIn) {
+    <h4>User is not logged in (loaded using if syntax block)</h4>
+}
+<h4>Welcome Guest</h4>
+ <!--if directive with number Values-->
+ <button (click)="countLoginAttempts()">Log In</button>
