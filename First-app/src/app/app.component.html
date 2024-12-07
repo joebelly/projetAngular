@@ -64,7 +64,7 @@
  <input type="text" [value]= 'textValue' (keyup.enter) = 'onKeyup()'>
 
  <!--one-way ngModel
- <input type="text" [(ngModel)] = 'textValue'  (keyup.enter) = 'onKeyup()'>-->
+ <input type="text" [(ngModel)] = 'textValue'  (keyup.enter) = 'onKeyup()'>
 
  <h2 *ngIf="isLoggedIn; else message" >{{ UserName }}</h2>
 
@@ -73,7 +73,7 @@
     <h4>User is not logged in (loaded using ng-template)</h4>
  </ng-template>
  
-<!--new way-->
+<!--new way
  
  @if (isLoggedIn) {
     <h3>{{  UserName  }}</h3>
@@ -84,6 +84,72 @@
 @if (!isLoggedIn) {
     <h4>User is not logged in (loaded using if syntax block)</h4>
 }
-<h4>Welcome Guest</h4>
+<h4>Welcome Guest</h4>-->
+
  <!--if directive with number Values-->
- <button (click)="countLoginAttempts()">Log In</button>
+ <!--NgIf-->
+
+ <h2 *ngIf="isLoggedIn; else message" >{{ Nom }}</h2>
+ <h4 *ngIf="!isLoggedIn" >Formulaire de login </h4>
+
+ <ng-template #message>
+ <h4> Formulaire de login(loaded using ng-template) </h4>
+ </ng-template>
+
+ <!--new way-->
+
+ @if (isLoggedIn) {
+    <h3>{{Nom}}</h3>
+ }
+
+ 
+ <!--else-->
+ 
+@else  {
+    <h5>Formulaire de login sinon il faut verifier ca</h5>
+}
+ @if (!isLoggedIn) {
+    <h4>utilisateur n'est pas donnee l'acces </h4>
+ }
+ <div *ngIf="currentCustomer">Hello, {{ name }}</div>
+
+<!--Ng-template
+<h4 *ngIf="isAdmin; else memberMessage" >Welcome</h4>
+<ng-template #memberMessage>
+    <h4 *ngIf="isMember; else guestMessage">Welcome Member</h4>   
+</ng-template>
+
+<ng-template #guestMessage>
+    <h4 *ngIf="isGuest">Welcome Guest</h4>  
+</ng-template>-->
+
+<!--@if, @else syntax Approach
+@if (isAdmin) {
+    <h4>Welcome Admin</h4>
+}
+@else if (isMember) {
+    <h4>Welcome Member</h4>
+}
+@else if (isGuest) {
+    <h4>Welcome Guest</h4>
+}-->
+
+<!--  if Directive With Number Values-->
+  <button (click)="countLoginAttempts()" *ngIf="longCount < 2">Log In</button>
+
+  <h4 *ngIf="longCount > 2" >Bonjour tous les mondes</h4>
+
+  @if (longCount < 2){
+    <button (click)="countLoginAttempts()">Login syntax</button>
+  }
+
+  @if (longCount > 2){
+    <h4>Bonjour tous les mondes</h4>
+  }
+
+  <!-- if Directive with string values-->
+   <h4 *ngIf="UserRole == 'Admin; else memberMessage'" >Welcome Admin </h4>
+
+   <ng-template #memberMessage>
+    <h4 *ngIf="isMember">Welcome Member</h4>   
+</ng-template>

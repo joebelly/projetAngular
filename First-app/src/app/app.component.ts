@@ -47,7 +47,30 @@ export class AppComponent {
   }
 
   //isLoggedIn:boolean = false;
-  isLoggedIn:boolean = false;
-  UserName: string = 'John Doe';
+  //isLoggedIn:boolean = false;
+  //UserName: string = 'John Doe';
+  ///isAdmin: boolean = false;
+  //isMember: boolean = false;
+  //isGuest: boolean = true;
 
+  //loginCount: number = 0;
+
+  //countLoginAttempts() {
+  ////this.loginCount ++;
+  //console.log(this.loginCount);
+  //}
+  isLoggedIn: boolean = false;
+  currentCustomer: boolean = true;
+  name: string = 'Mangues'
+  Nom: string = 'Iradukunda Lievin'
+  longCount: number = 0;
+  countLoginAttempts() {
+    this.longCount ++;
+    console.log(this.longCount);
+  }
+
+  isAdmin: boolean = false;
+  isMember: boolean = false;
+  isGuest: boolean = true;
+  UserRole: string = "Member";
  }
