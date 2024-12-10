@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { AppNavbar } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf],
+  imports: [RouterOutlet, AppNavbar, HeaderComponent, FormsModule, NgIf, NgTemplateOutlet, NgFor],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -73,4 +73,36 @@ export class AppComponent {
   isMember: boolean = false;
   isGuest: boolean = true;
   UserRole: string = "Member";
+
+  loginCount: number = 0;
+
+countLoginAttempt() {
+ this.loginCount ++;
+ console.log(this.loginCount);
+}
+users: Array<string> = ['Iradukunda', 'Kava', 'Lievin', 'joe', 'belly'];
+
+usersObj: Array<any> = [
+  {id: 1, name: 'iradukunda', email: 'iradukundakava@gmail.com' },
+  {id: 2, name: 'kava', email: 'kava@gmail.com' },
+  {id: 3, name: 'joe', email: 'joekava@gmail.com' },
+  {id: 4, name: 'belly', email: 'lievinkava@gmail.com' },
+]
+
+addNewUser() {
+  let user = {id:5, name: 'User 1', email: 'user1@gmail.com'};
+  this.usersObj.push(user);
+}
+
+constructor() {
+  console.log(this.usersObj.length);
+}
+//onDelete(user:object) {
+//let index = this.usersObj.indexOf(user);
+//this.usersObj.splice(index, 1);
+//}
+
+onDelete(index:number){
+  this.usersObj.splice(index, 1)
+}
  }

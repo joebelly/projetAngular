@@ -148,8 +148,91 @@
   }
 
   <!-- if Directive with string values-->
-   <h4 *ngIf="UserRole == 'Admin; else memberMessage'" >Welcome Admin </h4>
+   <h4 *ngIf="UserRole == 'Admin'; else memberMessage " >Welcome Admin </h4>
 
    <ng-template #memberMessage>
-    <h4 *ngIf="isMember">Welcome Member</h4>   
+    <h4>Welcome Member</h4>   
 </ng-template>
+
+@if (UserRole == 'Admin'){
+    <h4>Welcome Admin</h4>  
+}
+@else if (UserRole == 'Member') {
+    <h4>Welcome Member</h4>   
+}
+
+<!-- ng-template -->
+
+<h4 *ngIf="UserRole == 'Admin'; else dynamicTemplate ">Welcome Admin</h4>
+
+ <ng-template #dynamicTemplate>
+    <p>Bonjour !</p>
+ </ng-template>
+
+<ng-template #callToAction>
+    <p>Chris Ndikumana originalite burundais fait le miracle Adbijan cote d'ivore c'est la premiere fois tous les peuples burundais je vous salue </p>
+ <button>Join Now</button>
+</ng-template>
+
+
+ <div [ngTemplateOutlet]="callToAction" >
+    <h5>Sidebar</h5>
+</div>
+ <div [ngTemplateOutlet]="callToAction">
+    <h5>Hero</h5>
+</div>
+ <div [ngTemplateOutlet]="callToAction">
+    <h5>Footer</h5>
+</div>
+
+<!--- if Directive with Number Values-->
+<button  (click)="countLoginAttempt()" >Log In</button>
+
+<!-- Ng For Directive-->
+<h3>{{users}}</h3>
+<h3>{{users[0]}}</h3>
+<h3>{{users[1]}}</h3>
+<h3>{{users[2]}}</h3>
+<h3>{{users[3]}}</h3>
+<h3>{{users[4]}}</h3>
+
+<p>La chaine de caractere sur en ligne</p>
+
+<h3 *ngFor="let user of users" > {{ user }} </h3>
+<p>For syntax Approach</p>
+
+@for(user of users; track user) {
+ <p> {{user}} - Originalite burundais dans province 
+    gitega parcourir de ma naissance on commence dans le pays 
+    Tanzanie dans le province de kigoma</p>
+}
+
+<ul>
+    <li *ngFor="let user of users"> {{user}} </li>
+</ul>
+<ul>
+@for(user of users; track user) {
+        <li> {{user}} </li>
+}
+</ul>
+
+<!-- Fetch Array Object-->
+ <!--partie supprimer-->
+
+<!--<ul>
+    <li *ngFor="let user of usersObj" > {{user.email}} <button (click)="onDelete(i)">Delete</button></li>
+</ul>-->
+
+<ul>
+    <li *ngFor="let user of usersObj; let i = index " > {{i}} {{user.email}} <button (click)="onDelete(i)">Delete</button></li>
+</ul>
+
+<ul>
+@for(user of usersObj; track user; let i = $index) {
+    <li> {{usersObj.length}} - {{i}} {{user.name}} <button (click)="onDelete(i)">Delete</button></li>
+}
+</ul>
+
+<!-- Change Detection -->
+
+<button (click)="addNewUser()">Add New User</button>
